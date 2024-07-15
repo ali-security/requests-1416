@@ -2451,7 +2451,7 @@ class TestPreparingURLs(object):
     @pytest.mark.parametrize(
         'url, exception',
         (
-            ('https://localhost:-1', InvalidURL),
+            ('http://localhost:-1', InvalidURL),
         )
     )
     def test_redirecting_to_bad_url(self, httpbin, url, exception):
