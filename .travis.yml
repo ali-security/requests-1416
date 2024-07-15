@@ -1,4 +1,4 @@
-language: python
+language: python 
 # command to install dependencies
 install: "make"
 # command to run tests
