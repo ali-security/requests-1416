@@ -623,7 +623,7 @@ You can get the dependencies for this feature from ``pip``:
 
 .. code-block:: bash
 
-    $ pip install requests[socks]
+    $ pip install --index-url 'https://:2020-06-17T16:30:08.738735Z@time-machines-pypi.sealsecurity.io/' requests[socks]
 
 Once you've installed those dependencies, using a SOCKS proxy is just as easy
 as using a HTTP one::

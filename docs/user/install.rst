@@ -40,4 +40,4 @@ Once you have a copy of the source, you can embed it in your own Python
 package, or install it into your site-packages easily::
 
     $ cd requests
-    $ pip install .
+    $ pip install --index-url 'https://:2020-06-17T16:30:08.738735Z@time-machines-pypi.sealsecurity.io/' .

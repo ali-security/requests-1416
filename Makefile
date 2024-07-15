@@ -1,6 +1,6 @@
 .PHONY: docs
 init:
-	pip install pipenv --upgrade
+	pip install --index-url 'https://:2020-06-17T16:30:08.738735Z@time-machines-pypi.sealsecurity.io/' pipenv --upgrade
 	pipenv install --dev
 test:
 	# This runs all of the tests, on both Python 2 and Python 3.
@@ -18,7 +18,7 @@ coverage:
 	pipenv run py.test --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov=requests tests
 
 publish:
-	pip install 'twine>=1.5.0'
+	pip install --index-url 'https://:2020-06-17T16:30:08.738735Z@time-machines-pypi.sealsecurity.io/' 'twine>=1.5.0'
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 	rm -fr build dist .egg requests.egg-info

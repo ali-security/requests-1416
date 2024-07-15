@@ -532,7 +532,7 @@ Or, even better:
 **New Features**
 
 -   SOCKS Proxy Support! (requires PySocks;
-    `$ pip install requests[socks]`)
+    `$ pip install --index-url 'https://:2020-06-17T16:30:08.738735Z@time-machines-pypi.sealsecurity.io/' requests[socks]`)
 
 **Miscellaneous**
 
@@ -857,7 +857,7 @@ documentation](https://requests.readthedocs.io/en/latest/community/release-proce
 ------------------
 
 -   Now has a "security" package extras set,
-    `$ pip install requests[security]`
+    `$ pip install --index-url 'https://:2020-06-17T16:30:08.738735Z@time-machines-pypi.sealsecurity.io/' requests[security]`
 -   Requests will now use Certifi if it is available.
 -   Capture and re-raise urllib3 ProtocolError
 -   Bugfix for responses that attempt to redirect to themselves forever
