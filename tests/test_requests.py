@@ -2527,3 +2527,29 @@ class TestPreparingURLs(object):
         r = requests.Request('GET', url=input, params=params)
         p = r.prepare()
         assert p.url == expected
+
+    def test_different_connection_pool_for_tls_settings(self):
+        s = requests.Session()
+        r1 = s.get("https://invalid.badssl.com", verify=False)
+        assert r1.status_code == 421
+        with pytest.raises(requests.exceptions.SSLError):
+            s.get("https://invalid.badssl.com")
+
+    @pytest.mark.parametrize(
+        "url,has_proxy_auth",
+        (
+            ('http://example.com', True),
+            ('https://example.com', False),
+        ),
+    )
+    def test_proxy_authorization_not_appended_to_https_request(self, url, has_proxy_auth):
+        session = requests.Session()
+        proxies = {
+            'http': 'http://test:pass@localhost:8080',
+            'https': 'http://test:pass@localhost:8090',
+        }
+        req = requests.Request('GET', url)
+        prep = req.prepare()
+        session.rebuild_proxies(prep, proxies)
+
+        assert ('Proxy-Authorization' in prep.headers) is has_proxy_auth
